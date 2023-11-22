@@ -12,10 +12,10 @@ typedef struct No{
 } no;
 
 // Protótipos das funções 
-void criarVetorAleatorio(no *vetor, int size);
-void criarVetorOrdenado(no *vetor, int size);
+void criarVetorAleatorio(no *vetor, int size,int c);
+void criarVetorOrdenado(no *vetor, int size,int c);
 void imprimevetor(no *vetor, int tamanho);
-void insertionSort(no *vetor, int tamanho,int c);
+void insertionSort(no *vetor, int tamanho);
 
 // protótipos de funções auxiliares
 void limparTela();
@@ -39,6 +39,7 @@ int main(){
     double tempo_execucao;
     int escolha,tamanho,escolha2,escolha3,escolha4;
     int c = 0;
+    no *vetor;
 
   do {
         menu();
@@ -46,14 +47,12 @@ int main(){
         switch (escolha) {
             case 1:
                 tamanho = 10000;
-                no *vetor= (no *)malloc(tamanho * sizeof(int));
                 limparTela();
                 void escolhaOrdenacao();
                 escolhaOrdenacao();
                 escolha2 = lerOpcao(2);
                 limparTela();
                 if (escolha2 == 1){
-                    criarVetorOrdenado(vetor,tamanho);
                     escolhaMetodo();
                     escolha3 = lerOpcao(6);
                     limparTela();
@@ -61,8 +60,10 @@ int main(){
 
                         case 1:
                             do {
+                                vetor= (no *)malloc(tamanho * sizeof(no));
+                                criarVetorOrdenado(vetor,tamanho,c);
                                 inicio = clock();
-                                insertionSort(vetor,tamanho,c);
+                                insertionSort(vetor,tamanho);
                                 fim  = clock();
                                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
                                 printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
@@ -78,13 +79,15 @@ int main(){
                                 limparTela();
                                 escolhaContinuar();
                                 escolha4 = lerOpcao(2);
+                                limparTela();
                                 if (escolha4 == 1)
                                 c++;                                                         // usada para mudar a seed
                                 else if(escolha4 != 1){
                                     voltaMenu();
-                                    escolha4 = 1;
+                                    break;
                                 }
-                            }while(escolha4==1);                                               
+                            }while(escolha4==1);     
+                                                              
                         break;
 
                         case 2:
@@ -118,13 +121,40 @@ int main(){
 
                 }
                 else if(escolha2==2){
-                    criarVetorAleatorio(vetor,tamanho);
                     escolhaMetodo();
                     escolha3 = lerOpcao(6);
                     limparTela();
                     switch(escolha3){
 
                         case 1:
+                            do {
+                                vetor= (no *)malloc(tamanho * sizeof(no));
+                                criarVetorAleatorio(vetor,tamanho,c);
+                                inicio = clock();
+                                insertionSort(vetor,tamanho);
+                                fim  = clock();
+                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
+                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
+                                escolha = lerOpcao(2);
+                                if (escolha==1){
+                                    imprimevetor(vetor,tamanho);
+                                }
+
+                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                                printf("Seed : %d\n",c+22011027);
+                                free(vetor);                                                 // libera memoria do vetor
+                                pausaEnter();
+                                limparTela();
+                                escolhaContinuar();
+                                escolha4 = lerOpcao(2);
+                                limparTela();
+                                if (escolha4 == 1)
+                                c++;                                                         // usada para mudar a seed
+                                else if(escolha4 != 1){
+                                    voltaMenu();
+                                    break;
+                                }
+                            }while(escolha4==1);     
 
                         break;
 
@@ -152,7 +182,6 @@ int main(){
                         printf("Opção INVALIDA!\n\n");
                         pausaEnter();
                         limparTela();
-                        free(vetor);
                         voltaMenu();
                         break;
                     }
@@ -166,7 +195,7 @@ int main(){
                 }
                 break;
             case 2:
-                printf("Você escolheu a opção 2\n");
+         
                 break;
             case 3:
                 printf("Você escolheu a opção 3\n");
@@ -211,9 +240,9 @@ int main(){
 
  // Funções de ordenação e criação vetor
 
-void criarVetorAleatorio(no *vetor, int size) {
+void criarVetorAleatorio(no *vetor, int size,int c) {
     int i;
-    srand(22011027); // Semente
+    srand(22011027+c); // Semente
 
     for(i = 0; i < size; i++) 
     {
@@ -226,23 +255,24 @@ void criarVetorAleatorio(no *vetor, int size) {
 
 }
 
-void criarVetorOrdenado(no *vetor, int size) {
+void criarVetorOrdenado(no *vetor, int size,int c) {
+    int numero_aleatorio = rand();
+    numero_aleatorio = numero_aleatorio/1000;
     int i;
-    srand(22011027); // Semente
+    srand(22011027+c); // Semente
 
     for(i = 0; i < size; i++) 
     {
         
-        vetor[i].chave = 88+3*i*i;
+        vetor[i].chave = numero_aleatorio+i*i;
         vetor[i].valor = (float)(rand() + 100); // gera um número aleatório acima de 100 e armazena no valor
        
     }
 
 }
 
-void insertionSort(no *vetor, int tamanho,int c){
-    int i, j,escolha;
-    srand(22011027+i);
+void insertionSort(no *vetor, int tamanho){
+    int i, j;
     no aux;
     for (i = 1; i<tamanho; i++){
        for(j = i; j>0; j--){
@@ -388,3 +418,8 @@ void escolhaMetodo(){
 }
 
 void escolhaContinuar(){
+    printf("Deseja continuar executando com uma nova Seed?\n");
+    printf("1. Sim\n");
+    printf("2. Não\n");
+
+}
