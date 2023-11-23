@@ -30,764 +30,121 @@ void voltaMenu();
 void escolhaOrdenacao();
 void escolhaMetodo();
 void escolhaContinuar();
+void escolhaOrdenada(int tamanho);
+void escolhaAleatorio(int tamanho);
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
     // declaração dos vetores
-    char tipo = 'a';
-    clock_t inicio, fim;
-    double tempo_execucao;
-    int escolha,tamanho,escolha2,escolha3,escolha4;
-    int c = 0;
-    no *vetor;
+    int escolha,tamanho,escolha2;
 
   do {
         menu();
         escolha = lerOpcao(6);
         switch (escolha) {
+
             case 1:
                 tamanho = 10000;
                 limparTela();
-                void escolhaOrdenacao();
                 escolhaOrdenacao();
                 escolha2 = lerOpcao(2);
                 limparTela();
                 if (escolha2 == 1){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorOrdenado(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-                                                              
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        free(vetor);
-                        voltaMenu();
-                        break;
-                    }
+                    escolhaOrdenada(tamanho);
 
                 }
                 else if(escolha2==2){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorAleatorio(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        voltaMenu();
-                        break;
-                    }
+                    escolhaAleatorio(tamanho);
                 }
                 else{
                     limparTela();
                     printf("Opção invalida!\n");
-                    free(vetor);
                     voltaMenu();
                     limparTela();
+                    break;
                 }
                 break;
+
             case 2:
                 tamanho = 50000;
                 limparTela();
-                void escolhaOrdenacao();
                 escolhaOrdenacao();
                 escolha2 = lerOpcao(2);
                 limparTela();
                 if (escolha2 == 1){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
 
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorOrdenado(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-                                                              
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        free(vetor);
-                        voltaMenu();
-                        break;
-                    }
+                    escolhaOrdenada(tamanho);
 
                 }
+
                 else if(escolha2==2){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorAleatorio(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        voltaMenu();
-                        break;
-                    }
+                    escolhaAleatorio(tamanho);
                 }
                 else{
                     limparTela();
                     printf("Opção invalida!\n");
-                    free(vetor);
                     voltaMenu();
                     limparTela();
+                    break;
                 }
                 break;
             case 3:
                 tamanho = 100000;
                 limparTela();
-                void escolhaOrdenacao();
                 escolhaOrdenacao();
                 escolha2 = lerOpcao(2);
                 limparTela();
                 if (escolha2 == 1){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorOrdenado(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-                                                              
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        free(vetor);
-                        voltaMenu();
-                        break;
-                    }
-
+                    escolhaOrdenada(tamanho);
                 }
                 else if(escolha2==2){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorAleatorio(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        voltaMenu();
-                        break;
-                    }
+                    escolhaAleatorio(tamanho);
                 }
                 else{
                     limparTela();
                     printf("Opção invalida!\n");
-                    free(vetor);
                     voltaMenu();
                     limparTela();
+                    break;
                 }
                 break;
             case 4:
                 tamanho = 500000;
                 limparTela();
-                void escolhaOrdenacao();
                 escolhaOrdenacao();
                 escolha2 = lerOpcao(2);
                 limparTela();
                 if (escolha2 == 1){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorOrdenado(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-                                                              
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        free(vetor);
-                        voltaMenu();
-                        break;
-                    }
-
+                    escolhaOrdenada(tamanho);
                 }
                 else if(escolha2==2){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorAleatorio(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        voltaMenu();
-                        break;
-                    }
+                    escolhaAleatorio(tamanho);
                 }
                 else{
                     limparTela();
                     printf("Opção invalida!\n");
-                    free(vetor);
                     voltaMenu();
                     limparTela();
+                    break;
                 }
-                break;
             case 5:
                 tamanho = 1000000;
                 limparTela();
-                void escolhaOrdenacao();
                 escolhaOrdenacao();
                 escolha2 = lerOpcao(2);
                 limparTela();
                 if (escolha2 == 1){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorOrdenado(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-                                                              
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        free(vetor);
-                        voltaMenu();
-                        break;
-                    }
-
+                    escolhaOrdenada(tamanho);
                 }
                 else if(escolha2==2){
-                    escolhaMetodo();
-                    escolha3 = lerOpcao(6);
-                    limparTela();
-                    switch(escolha3){
-
-                        case 1:
-                            do {
-                                vetor= (no *)malloc(tamanho * sizeof(no));
-                                criarVetorAleatorio(vetor,tamanho,c);
-                                inicio = clock();
-                                insertionSort(vetor,tamanho);
-                                fim  = clock();
-                                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                                escolha = lerOpcao(2);
-                                if (escolha==1){
-                                    imprimevetor(vetor,tamanho);
-                                }
-
-                                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                                printf("Seed : %d\n",c+22011027);
-                                free(vetor);                                                 // libera memoria do vetor
-                                pausaEnter();
-                                limparTela();
-                                escolhaContinuar();
-                                escolha4 = lerOpcao(2);
-                                limparTela();
-                                if (escolha4 == 1)
-                                c++;                                                         // usada para mudar a seed
-                                else if(escolha4 != 1){
-                                    voltaMenu();
-                                    break;
-                                }
-                            }while(escolha4==1);     
-
-                        break;
-
-                        case 2:
-
-                        break;
-
-                        case 3:
-
-                        break;
-                        case 4:
-
-                        break;
-                        
-                        case 5:
-
-                        break;
-
-                        case 6:
-                        
-                        break;
-
-                        default:
-                        limparTela();
-                        printf("Opção INVALIDA!\n\n");
-                        pausaEnter();
-                        limparTela();
-                        voltaMenu();
-                        break;
-                    }
+                    escolhaAleatorio(tamanho);
                 }
                 else{
                     limparTela();
                     printf("Opção invalida!\n");
-                    free(vetor);
                     voltaMenu();
                     limparTela();
+                    break;
                 }
                 break;
             case 6:
@@ -800,7 +157,6 @@ int main(){
                 pausaEnter();
                 limparTela();
                 voltaMenu();
-        
                 break;
         }
     } while (escolha != 6);
@@ -1006,4 +362,114 @@ void escolhaContinuar(){
     printf("1. Sim\n");
     printf("2. Não\n");
 
+}
+
+void escolhaOrdenada(int tamanho){
+    char tipo = 'a';
+    clock_t inicio, fim;
+    double tempo_execucao;
+    int escolha,escolha2,escolha3,escolha4;
+    int c = 0;
+    no *vetor;
+    escolhaMetodo();
+    escolha3 = lerOpcao(6);
+    limparTela();
+    switch(escolha3){
+
+        case 1:
+            do {
+                vetor= (no *)malloc(tamanho * sizeof(no));
+                criarVetorOrdenado(vetor,tamanho,c);
+                inicio = clock();
+                insertionSort(vetor,tamanho);
+                fim  = clock();
+                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
+                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
+                escolha = lerOpcao(2);
+
+                if (escolha==1){
+                    imprimevetor(vetor,tamanho);
+                    }
+
+                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("Seed : %d\n",c+22011027);
+                free(vetor);                                                 // libera memoria do vetor
+                pausaEnter();
+                limparTela();
+                escolhaContinuar();
+                escolha4 = lerOpcao(2);
+                limparTela();
+                if (escolha4 == 1){
+                    c++;                             // usada para mudar a seed
+                }                                                     
+                else if(escolha4 != 1){
+                    voltaMenu();
+                    break;}
+                    
+                }while(escolha4==1);    
+
+                default:
+                    limparTela();
+                    printf("Opção INVALIDA!\n\n");
+                    pausaEnter();
+                    limparTela();
+                    voltaMenu();
+                    break;
+    }
+                    
+}
+
+void escolhaAleatorio(int tamanho){
+    char tipo = 'a';
+    clock_t inicio, fim;
+    double tempo_execucao;
+    int escolha,escolha2,escolha3,escolha4;
+    int c = 0;
+    no *vetor;
+    escolhaMetodo();
+    escolha3 = lerOpcao(6);
+    limparTela();
+    switch(escolha3){
+
+        case 1:
+            do {
+                vetor= (no *)malloc(tamanho * sizeof(no));
+                criarVetorAleatorio(vetor,tamanho,c);
+                inicio = clock();
+                insertionSort(vetor,tamanho);
+                fim  = clock();
+                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
+                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
+                escolha = lerOpcao(2);
+
+                if (escolha==1){
+                    imprimevetor(vetor,tamanho);
+                    }
+
+                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("Seed : %d\n",c+22011027);
+                free(vetor);                                                 // libera memoria do vetor
+                pausaEnter();
+                limparTela();
+                escolhaContinuar();
+                escolha4 = lerOpcao(2);
+                limparTela();
+                if (escolha4 == 1){
+                    c++;                             // usada para mudar a seed
+                }                                                     
+                else if(escolha4 != 1){
+                    voltaMenu();
+                    break;}
+                    
+                }while(escolha4==1);    
+
+                default:
+                    limparTela();
+                    printf("Opção INVALIDA!\n\n");
+                    pausaEnter();
+                    limparTela();
+                    voltaMenu();
+                    break;
+    }
+                    
 }
