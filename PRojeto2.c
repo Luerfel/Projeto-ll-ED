@@ -16,6 +16,9 @@ void criarVetorAleatorio(no *vetor, int size,int c);
 void criarVetorOrdenado(no *vetor, int size,int c);
 void imprimevetor(no *vetor, int tamanho);
 void insertionSort(no *vetor, int tamanho);
+void bubbleSort (no *vetor, int tamanho);
+void escolhaOrdenada(int tamanho);
+void escolhaAleatorio(int tamanho);
 
 // protótipos de funções auxiliares
 void limparTela();
@@ -30,8 +33,7 @@ void voltaMenu();
 void escolhaOrdenacao();
 void escolhaMetodo();
 void escolhaContinuar();
-void escolhaOrdenada(int tamanho);
-void escolhaAleatorio(int tamanho);
+
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
@@ -227,6 +229,10 @@ void insertionSort(no *vetor, int tamanho){
 
 }
 
+void bubbleSort (no *vetor, int tamanho){
+
+    
+}
 
 
 // Funções auxiliares
@@ -353,7 +359,7 @@ void escolhaMetodo(){
     printf("3. ShellSort\n");
     printf("4. MergeSort\n");   
     printf("5. QuickSort\n");
-    printf("6. ShellSort\n");
+    printf("6. SEXO\\n");
 
 }
 
