@@ -502,6 +502,8 @@ void escolhaAleatorio(int tamanho){
                             do {
                 vetor= (no *)malloc(tamanho * sizeof(no));
                 criarVetorOrdenado(vetor,tamanho,c);
+                imprimevetor(vetor,tamanho);
+                pausaEnter();
                 inicio = clock();
                 bubbleSort(vetor,tamanho);
                 fim  = clock();
