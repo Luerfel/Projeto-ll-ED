@@ -54,6 +54,7 @@ int main(){
      imprimevetor(vetor,tamanho);
     tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
     printf("Tempo : %f\n",tempo_execucao);
+    printf("chave primeiro elemento : %d\n chave ultimo elemento %d\n",vetor[0].chave,vetor[tamanho-1].chave);
                 
 
 
@@ -122,8 +123,8 @@ void insertionSort(no *vetor, int tamanho){
 void bubbleSort (no *vetor, int tamanho){
 int i, j;
 no aux;
-for (i=0; i<tamanho-1; i++){
-    for (j=1; j<tamanho-1; j++){
+for (i=0; i<tamanho; i++){
+    for (j=1; j<tamanho; j++){
         if (vetor[j].chave>vetor[j-1].chave){
             aux = vetor[j-1];
             vetor[j-1] = vetor[j];
