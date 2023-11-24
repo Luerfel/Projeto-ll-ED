@@ -33,7 +33,7 @@ void voltaMenu();
 void escolhaOrdenacao();
 void escolhaMetodo();
 void escolhaContinuar();
-
+void elseEscolha2();
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
@@ -59,10 +59,7 @@ int main(){
                     escolhaAleatorio(tamanho);
                 }
                 else{
-                    limparTela();
-                    printf("Opção invalida!\n");
-                    voltaMenu();
-                    limparTela();
+                    elseEscolha2();
                     break;
                 }
                 break;
@@ -83,10 +80,8 @@ int main(){
                     escolhaAleatorio(tamanho);
                 }
                 else{
-                    limparTela();
-                    printf("Opção invalida!\n");
-                    voltaMenu();
-                    limparTela();
+                    elseEscolha2();
+
                     break;
                 }
                 break;
@@ -103,10 +98,7 @@ int main(){
                     escolhaAleatorio(tamanho);
                 }
                 else{
-                    limparTela();
-                    printf("Opção invalida!\n");
-                    voltaMenu();
-                    limparTela();
+                    elseEscolha2();
                     break;
                 }
                 break;
@@ -123,10 +115,8 @@ int main(){
                     escolhaAleatorio(tamanho);
                 }
                 else{
-                    limparTela();
-                    printf("Opção invalida!\n");
-                    voltaMenu();
-                    limparTela();
+                    elseEscolha2();
+
                     break;
                 }
             case 5:
@@ -142,10 +132,8 @@ int main(){
                     escolhaAleatorio(tamanho);
                 }
                 else{
-                    limparTela();
-                    printf("Opção invalida!\n");
-                    voltaMenu();
-                    limparTela();
+                    elseEscolha2();
+
                     break;
                 }
                 break;
@@ -154,11 +142,7 @@ int main(){
                 mensagemFinal();
                 break;
             default:
-                limparTela();
-                printf("Opção inválida\n");
-                pausaEnter();
-                limparTela();
-                voltaMenu();
+                elseEscolha2();
                 break;
         }
     } while (escolha != 6);
@@ -230,7 +214,18 @@ void insertionSort(no *vetor, int tamanho){
 }
 
 void bubbleSort (no *vetor, int tamanho){
-
+    int i, j;
+    no aux;
+    for (i=0; i<tamanho; i++){
+        for (j=1; j<tamanho; j++){
+            if (vetor[j].chave>vetor[j-1].chave){
+                aux = vetor[j-1];
+                vetor[j-1] = vetor[j];
+                vetor [j] = aux;
+        }
+        
+    }
+}
     
 }
 
@@ -413,6 +408,41 @@ void escolhaOrdenada(int tamanho){
                     break;}
                     
                 }while(escolha4==1);    
+                
+            case 2:
+            do {
+                vetor= (no *)malloc(tamanho * sizeof(no));
+                criarVetorOrdenado(vetor,tamanho,c);
+                inicio = clock();
+                bubbleSort(vetor,tamanho);
+                fim  = clock();
+                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
+                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
+                escolha = lerOpcao(2);
+
+                if (escolha==1){
+                    imprimevetor(vetor,tamanho);
+                    }
+
+                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("Seed : %d\n",c+22011027);
+                free(vetor);                                                 // libera memoria do vetor
+                pausaEnter();
+                limparTela();
+                escolhaContinuar();
+                escolha4 = lerOpcao(2);
+                limparTela();
+                if (escolha4 == 1){
+                    c++;                             // usada para mudar a seed
+                }                                                     
+                else if(escolha4 != 1){
+                    voltaMenu();
+                    break;}
+                    
+                }while(escolha4==1);    
+
+
+                break;
 
                 default:
                     limparTela();
@@ -467,7 +497,39 @@ void escolhaAleatorio(int tamanho){
                     voltaMenu();
                     break;}
                     
+                }while(escolha4==1);   
+                case 2:
+                            do {
+                vetor= (no *)malloc(tamanho * sizeof(no));
+                criarVetorOrdenado(vetor,tamanho,c);
+                inicio = clock();
+                bubbleSort(vetor,tamanho);
+                fim  = clock();
+                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
+                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
+                escolha = lerOpcao(2);
+
+                if (escolha==1){
+                    imprimevetor(vetor,tamanho);
+                    }
+
+                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("Seed : %d\n",c+22011027);
+                free(vetor);                                                 // libera memoria do vetor
+                pausaEnter();
+                limparTela();
+                escolhaContinuar();
+                escolha4 = lerOpcao(2);
+                limparTela();
+                if (escolha4 == 1){
+                    c++;                             // usada para mudar a seed
+                }                                                     
+                else if(escolha4 != 1){
+                    voltaMenu();
+                    break;}
+                    
                 }while(escolha4==1);    
+                break; 
 
                 default:
                     limparTela();
@@ -478,4 +540,11 @@ void escolhaAleatorio(int tamanho){
                     break;
     }
                     
+}
+
+void elseEscolha2(){
+    limparTela();
+    printf("Opção invalida!\n");
+    voltaMenu();
+    limparTela();
 }
