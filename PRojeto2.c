@@ -224,7 +224,7 @@ void bubbleSort (no *vetor, int tamanho){
     int i, j;
     no aux;
     for (i=0; i<tamanho; i++){
-        for (j=1; j<tamanho; j++){
+        for (j=1; j<tamanho-i; j++){
             if (vetor[j].chave>vetor[j-1].chave){
                 aux = vetor[j-1];
                 vetor[j-1] = vetor[j];
