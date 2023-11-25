@@ -25,7 +25,11 @@ void bubbleSort (no *vetor, int tamanho);
 void escolhaOrdenada(int tamanho);
 void escolhaAleatorio(int tamanho);
 void mergeSort(no *vetor , int tamanho);
-
+void merge(no *v , no *c, int i, int m , int f);
+void sort(no *v, no *c, int i,int f);
+void shellSort(no *vetor , int tamanho);
+int particao(no *v, int LI, int LS);
+void quickSort(no *v, int LI, int LS);
 // protótipos de funções auxiliares
 void limparTela();
 void limparBuffer();
@@ -40,10 +44,7 @@ void escolhaOrdenacao();
 void escolhaMetodo();
 void escolhaContinuar();
 void elseEscolha2();
-void merge(no *v , no *c, int i, int m , int f);
-void sort(no *v, no *c, int i,int f);
-void mergesort(no *v , int n);
-void shellSort(no *vetor , int tamanho);
+
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
@@ -401,12 +402,12 @@ void escolhaOrdenada(int tamanho){
                 //if (escolha==1){
                   //  imprimevetor(vetor,tamanho);
                    // }
-
-                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
-                printf("primeiro elemento %d , ultimo elemento %d",vetor[0].chave,vetor[tamanho-1].chave);
+
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
                 c++;
@@ -445,8 +446,8 @@ void escolhaOrdenada(int tamanho){
                /* if (escolha==1){
                     imprimevetor(vetor,tamanho);
                     } */
-                printf("primeiro elemento %d , ultimo elemento %d",vetor[0].chave,vetor[tamanho-1].chave);
-                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
@@ -485,12 +486,11 @@ void escolhaOrdenada(int tamanho){
                 //if (escolha==1){
                   //  imprimevetor(vetor,tamanho);
                    // }
-
-                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
-                printf("primeiro elemento %d , ultimo elemento %d",vetor[0].chave,vetor[tamanho-1].chave);
                 c++;
                 free(vetor);
                 }                                                 // libera memoria do vetor
@@ -528,12 +528,12 @@ void escolhaOrdenada(int tamanho){
                     imprimevetor(vetor,tamanho);
                     }
                 */
-                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                printf("Seed : %d\n",c+22011027);
+                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
+                printf("Seed : %d\n",22011027+c);
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
-                printf("primeiro elemento %d , ultimo elemento %d",vetor[0].chave,vetor[tamanho-1].chave);
-
+                c++;
                 free(vetor);                                                 // libera memoria do vetor
                  }
                 limparTela();
@@ -553,6 +553,47 @@ void escolhaOrdenada(int tamanho){
                     
                 }while(escolha4==1);   
                 break;
+        case 5:
+            do {
+                for(int k=0;k<10;k++){
+                vetor= (no *)malloc(tamanho * sizeof(no));
+                criarVetorOrdenado(vetor,tamanho,c);
+                inicio = clock();
+                quickSort(vetor,0,tamanho-1);
+                fim  = clock();
+                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
+                //printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
+                //escolha = lerOpcao(2);
+
+                //if (escolha==1){
+                  //  imprimevetor(vetor,tamanho);
+                   // }
+                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
+                printf("Seed : %d\n",c+22011027);
+                tempo1[k].chave = tempo_execucao;
+                tempo1[k].seed = 22011027+c;
+                tempo1[k].chave = tempo_execucao;
+                tempo1[k].seed = 22011027+c;
+                c++;
+                free(vetor);
+                }                                                 // libera memoria do vetor
+                pausaEnter();
+                limparTela();
+                for(int m=0;m<10;m++){
+                    printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                }
+                escolhaContinuar();
+                escolha4 = lerOpcao(2);
+                limparTela();
+                /*if (escolha4 == 1){
+                    c++;                             // usada para mudar a seed
+                } */                                                    
+                if(escolha4 != 1){
+                    voltaMenu();
+                    break;}
+                    
+                }while(escolha4==1);    
 
             default:
                 limparTela();
@@ -594,13 +635,12 @@ void escolhaAleatorio(int tamanho){
                     imprimevetor(vetor,tamanho);
                     }
                 */
-                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
                 c++;
-                printf("primeiro elemento %d , ultimo elemento %d\n",vetor[0].chave,vetor[tamanho-1].chave);
-
                 free(vetor); 
                 }                                                // libera memoria do vetor
                 pausaEnter();
@@ -636,7 +676,7 @@ void escolhaAleatorio(int tamanho){
                     imprimevetor(vetor,tamanho);
                     }
                 */
-                printf("primeiro elemento %d , ultimo elemento %d\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -676,12 +716,11 @@ void escolhaAleatorio(int tamanho){
                 //if (escolha==1){
                   //  imprimevetor(vetor,tamanho);
                    // }
-
-                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
-                printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
                 printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
+                printf("Seed : %d\n",c+22011027);
                 c++;
                 free(vetor);
                 }                                                 // libera memoria do vetor
@@ -720,7 +759,7 @@ void escolhaAleatorio(int tamanho){
                     }
                 */
                 printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
-                printf("Tempo de execução em segundos : %f\n\n",tempo_execucao);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
@@ -745,6 +784,47 @@ void escolhaAleatorio(int tamanho){
                     
                 }while(escolha4==1);   
                 break;
+        case 5:
+            do {
+                for(int k=0;k<10;k++){
+                vetor= (no *)malloc(tamanho * sizeof(no));
+                criarVetorAleatorio(vetor,tamanho,c);
+                inicio = clock();
+                quickSort(vetor,0,tamanho-1);
+                fim  = clock();
+                tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
+                //printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
+                //escolha = lerOpcao(2);
+
+                //if (escolha==1){
+                  //  imprimevetor(vetor,tamanho);
+                   // }
+                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+                printf("Tempo de execução em segundos : %f\n",tempo_execucao);
+                printf("Seed : %d\n",c+22011027);
+                tempo1[k].chave = tempo_execucao;
+                tempo1[k].seed = 22011027+c;
+                tempo1[k].chave = tempo_execucao;
+                tempo1[k].seed = 22011027+c;
+                c++;
+                free(vetor);
+                }                                                 // libera memoria do vetor
+                pausaEnter();
+                limparTela();
+                for(int m=0;m<10;m++){
+                    printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                }
+                escolhaContinuar();
+                escolha4 = lerOpcao(2);
+                limparTela();
+                /*if (escolha4 == 1){
+                    c++;                             // usada para mudar a seed
+                } */                                                    
+                if(escolha4 != 1){
+                    voltaMenu();
+                    break;}
+                    
+                }while(escolha4==1);    
 
                 default:
                     limparTela();
@@ -830,5 +910,38 @@ void shellSort(no *vetor , int tamanho){
             }
             vetor[j] = aux;
         }
+    }
+}
+
+int particao(no *v, int LI, int LS) {
+    no aux;
+    int e = LI;
+    int d = LS - 1; // Ajuste aqui para evitar acessar v[LS], que é o pivô
+    no pivo = v[LS];
+    while (e <= d) {
+        while (e <= d && v[e].chave > pivo.chave) {
+            e++;
+        }
+        while (d >= e && v[d].chave <= pivo.chave) {
+            d--;
+        }
+        if (e < d) {
+            aux = v[e];
+            v[e] = v[d];
+            v[d] = aux;
+        }
+    }
+    aux = v[e];
+    v[e] = v[LS];
+    v[LS] = aux;
+    return e;
+}
+
+void quickSort(no *v, int LI, int LS) {
+    if (LI < LS) {
+        int p;
+        p = particao(v, LI, LS);
+        quickSort(v, LI, p - 1);
+        quickSort(v, p + 1, LS);
     }
 }
