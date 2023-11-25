@@ -538,9 +538,9 @@ void escolhaOrdenada(int tamanho){
                 printf("primeiro elemento %d , ultimo elemento %d",vetor[0].chave,vetor[tamanho-1].chave);
 
                 free(vetor);                                                 // libera memoria do vetor
-                pausaEnter();
                  }
                 limparTela();
+                pausaEnter();
                 for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
                 }
@@ -730,9 +730,9 @@ void escolhaAleatorio(int tamanho){
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
                 c++;
-                free(vetor);                                                 // libera memoria do vetor
-                pausaEnter();
+                free(vetor);                                                 // libera memoria do vetor 
                  }
+                pausaEnter();
                 limparTela();
                 for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
@@ -745,6 +745,7 @@ void escolhaAleatorio(int tamanho){
                 }                                                     
                 else if(escolha4 != 1){
                     voltaMenu();
+                    escolha4=0;
                     break;}
                     
                 }while(escolha4==1);   
