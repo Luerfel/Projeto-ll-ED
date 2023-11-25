@@ -223,7 +223,7 @@ void insertionSort(no *vetor, int tamanho){
 void bubbleSort (no *vetor, int tamanho){
     int i, j;
     no aux;
-    for (i=0; i<tamanho; i++){
+    for (i=0; i<tamanho-1; i++){
         for (j=1; j<tamanho-i; j++){
             if (vetor[j].chave>vetor[j-1].chave){
                 aux = vetor[j-1];
@@ -438,6 +438,7 @@ void escolhaOrdenada(int tamanho){
                 bubbleSort(vetor,tamanho);
                 fim  = clock(); 
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
+
                // printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
                // escolha = lerOpcao(2);
 
