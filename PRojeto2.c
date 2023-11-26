@@ -475,7 +475,7 @@ char validarOpcao() {
         opcao = tolower(getchar());
         limparBuffer(); 
     if(opcao != 's' && opcao != 'n') {
-        printf("Opção inválida. Digite apenas s ou n.\n");
+        printf("Opcao invalida. Digite apenas s ou n.\n");
     }
 
   } while(opcao != 's' && opcao != 'n');
@@ -489,19 +489,19 @@ void mensagemFinal(){
 }
 
 void escolhaOrdenacao(){
-    printf("Como você prefere que a chave de ordenação seja? \n");
+    printf("Como você prefere que a chave de ordenacao seja? \n");
     printf("1. Ordenada\n");
     printf("2. Aleatoria\n");
 }
 
 void escolhaMetodo(){
-    printf("Qual o metodo de ordenação?\n");
+    printf("Qual o metodo de ordenacao?\n");
     printf("1. InsertionSort\n");
     printf("2. BubleSort\n");
     printf("3. ShellSort\n");
     printf("4. MergeSort\n");   
     printf("5. QuickSort\n");
-    printf("6. SEXO\\n");
+    printf("6. HeapSort\\n");
 
 }
 
