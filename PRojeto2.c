@@ -207,6 +207,8 @@ void criarVetorOrdenado(no *vetor, int size,int c) {
 
 }
 
+
+// Função  Ordenação
 void insertionSort(no *vetor, int tamanho){
     int i, j;
     no aux;
