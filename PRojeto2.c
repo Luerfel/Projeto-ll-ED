@@ -239,6 +239,142 @@ void bubbleSort (no *vetor, int tamanho){
     
 }
 
+void criaHeap(no* vet, int i, int f){
+    no aux = vet[i];
+    int j = i * 2 + 1;
+    while (j <= f){
+        if(j < f && vet[j].chave > vet[j + 1].chave){ // Alteração na comparação para ordem decrescente
+            j = j + 1;
+        }
+        if(aux.chave > vet[j].chave){ // Alteração na comparação para ordem decrescente
+            vet[i] = vet[j];
+            i = j;
+            j = 2 * i + 1;
+        }else{
+            break;
+        }
+    }
+    vet[i] = aux;
+}
+
+void heapSort(no *vet, int N){
+    int i;
+    no aux;
+    for(i=(N - 1)/2; i >= 0; i--){
+        criaHeap(vet, i, N-1);
+    }
+    for (i = N-1; i >= 1; i--){
+        aux = vet[0];
+        vet[0] = vet[i];
+        vet[i] = aux;
+        criaHeap(vet, 0, i - 1);
+    }
+}
+
+int particao(no *v, int LI, int LS) {
+    no aux;
+    int e = LI;
+    int d = LS - 1; // Ajuste aqui para evitar acessar v[LS], que é o pivô
+    no pivo = v[LS];
+    while (e <= d) {
+        while (e <= d && v[e].chave > pivo.chave) {
+            e++;
+        }
+        while (d >= e && v[d].chave <= pivo.chave) {
+            d--;
+        }
+        if (e < d) {
+            aux = v[e];
+            v[e] = v[d];
+            v[d] = aux;
+        }
+    }
+    aux = v[e];
+    v[e] = v[LS];
+    v[LS] = aux;
+    return e;
+}
+
+void quickSort(no *v, int LI, int LS) {
+    if (LI < LS) {
+        int p;
+        p = particao(v, LI, LS);
+        quickSort(v, LI, p - 1);
+        quickSort(v, p + 1, LS);
+    }
+}
+
+void sort(no *v, no *c, int i,int f){
+    if (i < f)
+    {
+        int m = (i+f)/2;
+        sort(v, c, i, m);
+        sort(v, c, m+1, f);
+        if (v[m].chave < v[m+1].chave)
+        {
+            merge(v, c, i, m, f);
+        }
+    }
+}
+
+void mergeSort(no *v , int n){
+    no *c = malloc(sizeof(no)*n);
+    sort (v, c, 0, n-1);
+    free(c);
+    
+
+}
+
+void shellSort(no *vetor , int tamanho){
+    int i,j,h;
+    no aux;
+    for (h=1; h<tamanho; h = 3*h+1);
+
+    while(h>0){
+        h = (h-1)/3;
+        for(i=h; i<tamanho; i++){
+            aux = vetor[i];
+            j = i;
+
+            while (vetor[j-h].chave < aux.chave) {
+                vetor[j] = vetor[j - h];
+                j -= h;
+                if (j<h) break;
+            }
+            vetor[j] = aux;
+        }
+    }
+}
+
+void merge(no *v , no *c, int i, int m , int f){
+    int z, iv = i, ic = m+1;
+    for(z = i; z <= f; z++)
+    {
+        c[z] = v[z];
+    }
+    z = i;
+    while (iv <= m && ic <= f)
+    {
+        if (c[iv].chave >= c[ic].chave)
+        {
+            v[z++] = c[iv++];
+        }
+        else
+        {
+            v[z++] = c[ic++];
+        }
+    }
+    while (iv <= m)
+    {
+        v[z++] = c[iv++];
+    }
+    while (ic <= f)
+    {
+        v[z++] = c[ic++];
+    }
+}
+
+
 
 // Funções auxiliares
 void imprimevetor(no *vetor, int tamanho){
@@ -926,138 +1062,4 @@ void elseEscolha2(){
     printf("Opção invalida!\n");
     voltaMenu();
     limparTela();
-}
-void merge(no *v , no *c, int i, int m , int f){
-    int z, iv = i, ic = m+1;
-    for(z = i; z <= f; z++)
-    {
-        c[z] = v[z];
-    }
-    z = i;
-    while (iv <= m && ic <= f)
-    {
-        if (c[iv].chave >= c[ic].chave)
-        {
-            v[z++] = c[iv++];
-        }
-        else
-        {
-            v[z++] = c[ic++];
-        }
-    }
-    while (iv <= m)
-    {
-        v[z++] = c[iv++];
-    }
-    while (ic <= f)
-    {
-        v[z++] = c[ic++];
-    }
-}
-
-void sort(no *v, no *c, int i,int f){
-    if (i < f)
-    {
-        int m = (i+f)/2;
-        sort(v, c, i, m);
-        sort(v, c, m+1, f);
-        if (v[m].chave < v[m+1].chave)
-        {
-            merge(v, c, i, m, f);
-        }
-    }
-}
-
-void mergeSort(no *v , int n){
-    no *c = malloc(sizeof(no)*n);
-    sort (v, c, 0, n-1);
-    free(c);
-    
-
-}
-
-void shellSort(no *vetor , int tamanho){
-    int i,j,h;
-    no aux;
-    for (h=1; h<tamanho; h = 3*h+1);
-
-    while(h>0){
-        h = (h-1)/3;
-        for(i=h; i<tamanho; i++){
-            aux = vetor[i];
-            j = i;
-
-            while (vetor[j-h].chave < aux.chave) {
-                vetor[j] = vetor[j - h];
-                j -= h;
-                if (j<h) break;
-            }
-            vetor[j] = aux;
-        }
-    }
-}
-
-int particao(no *v, int LI, int LS) {
-    no aux;
-    int e = LI;
-    int d = LS - 1; // Ajuste aqui para evitar acessar v[LS], que é o pivô
-    no pivo = v[LS];
-    while (e <= d) {
-        while (e <= d && v[e].chave > pivo.chave) {
-            e++;
-        }
-        while (d >= e && v[d].chave <= pivo.chave) {
-            d--;
-        }
-        if (e < d) {
-            aux = v[e];
-            v[e] = v[d];
-            v[d] = aux;
-        }
-    }
-    aux = v[e];
-    v[e] = v[LS];
-    v[LS] = aux;
-    return e;
-}
-
-void quickSort(no *v, int LI, int LS) {
-    if (LI < LS) {
-        int p;
-        p = particao(v, LI, LS);
-        quickSort(v, LI, p - 1);
-        quickSort(v, p + 1, LS);
-    }
-}
-
-void criaHeap(no* vet, int i, int f){
-    no aux = vet[i];
-    int j = i * 2 + 1;
-    while (j <= f){
-        if(j < f && vet[j].chave > vet[j + 1].chave){ // Alteração na comparação para ordem decrescente
-            j = j + 1;
-        }
-        if(aux.chave > vet[j].chave){ // Alteração na comparação para ordem decrescente
-            vet[i] = vet[j];
-            i = j;
-            j = 2 * i + 1;
-        }else{
-            break;
-        }
-    }
-    vet[i] = aux;
-}
-
-void heapSort(no *vet, int N){
-    int i;
-    no aux;
-    for(i=(N - 1)/2; i >= 0; i--){
-        criaHeap(vet, i, N-1);
-    }
-    for (i = N-1; i >= 1; i--){
-        aux = vet[0];
-        vet[0] = vet[i];
-        vet[i] = aux;
-        criaHeap(vet, 0, i - 1);
-    }
 }
