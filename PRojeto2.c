@@ -520,6 +520,7 @@ void escolhaOrdenada(int tamanho){
     double tempo_execucao;
     int escolha,escolha2,escolha3,escolha4;
     int c = 0;
+    float media = 0;
     no *vetor;
     tempo tempo1[10];
     escolhaMetodo();
@@ -557,7 +558,11 @@ void escolhaOrdenada(int tamanho){
                 limparTela();
                 for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
+
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -593,10 +598,14 @@ void escolhaOrdenada(int tamanho){
                 tempo1[k].seed = 22011027+c;
                 free(vetor);                                                 // libera memoria do vetor                
                 }
-                for(int m=0;m<10;m++){
+                pausaEnter();
+                limparTela();
+             for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
-                
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -636,9 +645,12 @@ void escolhaOrdenada(int tamanho){
                 }                                                 // libera memoria do vetor
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
+             for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -678,9 +690,13 @@ void escolhaOrdenada(int tamanho){
                  }
                 limparTela();
                 pausaEnter();
-                for(int m=0;m<10;m++){
+                limparTela();
+             for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -720,9 +736,12 @@ void escolhaOrdenada(int tamanho){
                 }                                                 // libera memoria do vetor
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
+             for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -760,9 +779,12 @@ void escolhaOrdenada(int tamanho){
                 }                                                 // libera memoria do vetor
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
+             for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -797,6 +819,7 @@ void escolhaAleatorio(int tamanho){
     tempo tempo1[10];
     no *vetor;
     escolhaMetodo();
+    float media;
     escolha3 = lerOpcao(6);
     limparTela();
     switch(escolha3){
@@ -827,9 +850,12 @@ void escolhaAleatorio(int tamanho){
                 }                                                // libera memoria do vetor
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
-                    printf("Tempo do vetor %d : %f \nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                   for(int m=0;m<10;m++){
+                    printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -868,9 +894,12 @@ void escolhaAleatorio(int tamanho){
                 }                                                // libera memoria do vetor
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
+                  for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -908,9 +937,12 @@ void escolhaAleatorio(int tamanho){
                 }                                                 // libera memoria do vetor
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
+              for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -950,9 +982,12 @@ void escolhaAleatorio(int tamanho){
                  }
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
+             for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -993,9 +1028,12 @@ void escolhaAleatorio(int tamanho){
                 }                                                 // libera memoria do vetor
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
+             for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -1032,9 +1070,12 @@ void escolhaAleatorio(int tamanho){
                 }                                                 // libera memoria do vetor
                 pausaEnter();
                 limparTela();
-                for(int m=0;m<10;m++){
+             for(int m=0;m<10;m++){
                     printf("Tempo do vetor %d : %f\nSemente do vetor %d : %d\n\n",m,tempo1[m].chave,m,tempo1[m].seed);
+                    media = media + tempo1[m].chave;     
                 }
+                media = media/10;
+                printf("\nMedia : %f",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
