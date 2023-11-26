@@ -19,6 +19,8 @@ void insertionSort(no *vetor, int tamanho);
 void bubbleSort (no *vetor, int tamanho);
 void escolhaOrdenada(int tamanho);
 void escolhaAleatorio(int tamanho);
+void criaHeap(no *vet, int i, int f);
+void heapSort(no *vet, int N);
 
 // protótipos de funções auxiliares
 void limparTela();
@@ -47,11 +49,11 @@ int main(){
     int c = 0;
     no *vetor;
 
-    tamanho = 10000;
+    tamanho = 1e6;
     vetor= (no *)malloc(tamanho * sizeof(no));
     criarVetorAleatorio(vetor,tamanho,c);
     inicio = clock();
-    quickSort(vetor,0,tamanho-1);
+    heapSort(vetor,tamanho);
     fim  = clock();
     imprimevetor(vetor,tamanho);
     tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
@@ -122,13 +124,13 @@ void imprimevetor(no *vetor, int tamanho){
 int particao(no *v, int LI, int LS) {
     no aux;
     int e = LI;
-    int d = LS - 1; // Ajuste aqui para evitar acessar v[LS], que é o pivô
+    int d = LS-1;
     no pivo = v[LS];
-    while (e <= d) {
-        while (e <= d && v[e].chave > pivo.chave) {
+    while (e < d) {
+        while (v[e].chave >= pivo.chave && e < LS) {
             e++;
         }
-        while (d >= e && v[d].chave <= pivo.chave) {
+        while (v[d].chave < pivo.chave && d > LI) {
             d--;
         }
         if (e < d) {
@@ -137,11 +139,12 @@ int particao(no *v, int LI, int LS) {
             v[d] = aux;
         }
     }
-    aux = v[e];
-    v[e] = v[LS];
-    v[LS] = aux;
-    return e;
+    aux = v[LI];
+    v[LI] = v[d];
+    v[d] = aux;
+    return d;
 }
+
 void quickSort(no *v, int LI, int LS) {
     if (LI < LS) {
         int p;
@@ -151,3 +154,34 @@ void quickSort(no *v, int LI, int LS) {
     }
 }
 
+void criaHeap(no* vet, int i, int f){
+    no aux = vet[i];
+    int j = i * 2 + 1;
+    while (j <= f){
+        if(j < f && vet[j].chave > vet[j + 1].chave){ // Alteração na comparação para ordem decrescente
+            j = j + 1;
+        }
+        if(aux.chave > vet[j].chave){ // Alteração na comparação para ordem decrescente
+            vet[i] = vet[j];
+            i = j;
+            j = 2 * i + 1;
+        }else{
+            break;
+        }
+    }
+    vet[i] = aux;
+}
+
+void heapSort(no *vet, int N){
+    int i;
+    no aux;
+    for(i=(N - 1)/2; i >= 0; i--){
+        criaHeap(vet, i, N-1);
+    }
+    for (i = N-1; i >= 1; i--){
+        aux = vet[0];
+        vet[0] = vet[i];
+        vet[i] = aux;
+        criaHeap(vet, 0, i - 1);
+    }
+}
