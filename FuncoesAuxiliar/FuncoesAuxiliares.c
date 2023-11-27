@@ -5,7 +5,7 @@
 
 void elseEscolha2(){
     limparTela();
-    printf("Opção invalida!\n");
+    printf("Opcao invalida!\n");
     voltaMenu();
     limparTela();
 }
@@ -39,7 +39,7 @@ char validarOpcao() {
 
 void mensagemFinal(){
     printf("\nFIM DO PROGRAMA!\n\n");
-    printf("Obrigado por usar nosso software. Ficamos felizes em ajudar.\nAté a próxima vez!\n\n");
+    printf("Obrigado por usar nosso software. Ficamos felizes em ajudar.\nAte a proxima vez!\n\n");
 }
 
 void escolhaOrdenacao(){
@@ -62,8 +62,7 @@ void escolhaMetodo(){
 void escolhaContinuar(){
     printf("Deseja continuar executando com uma nova Seed?\n");
     printf("1. Sim\n");
-    printf("2. Não\n");
-
+    printf("2. Nao\n");
 }
 
 void limparTela()
@@ -111,7 +110,7 @@ void menu(){
     printf("2. 5*10e4 (50 MIL)\n");
     printf("3. 10e5 (100 MIL)\n");
     printf("4. 5*10e5 (500 mil)\n");
-    printf("5. 5e6 (1 Milhão)\n");
+    printf("5. 5e6 (1 Milhao)\n");
     printf("6. Finalizar Programa\n\n");
 }
 

@@ -14,8 +14,8 @@ void quickSort(no *v, int LI, int LS) {
     }
 }
 
-//Limite superior
 
+//Limite superior
 /*int particao(no *v, int LI, int LS) {
     no aux;
     int e = LI;
@@ -47,8 +47,8 @@ void quickSort(no *v, int LI, int LS) {
 
 
 // Limite Inferior
-/*
-int particao(no *v, int LI, int LS) { 
+
+/*int particao(no *v, int LI, int LS) { 
     no aux;
     int e = LI + 1; // Define o início da busca um elemento à frente do limite inferior
     int d = LS; // Define o fim da busca como o limite superior
@@ -75,11 +75,10 @@ int particao(no *v, int LI, int LS) {
     v[d] = v[LI];
     v[LI] = aux;
     return d; // Retorna a posição do pivô
-}
-*/
+}*/
 
-//Limite no Meio
 
+//Limite no Meio foi o a ordenacao escolhida
 int particao(no *v, int LI, int LS) {
     no aux;
     int meio = (LI + LS) / 2; // Calcula o índice do elemento do meio
@@ -105,4 +104,4 @@ int particao(no *v, int LI, int LS) {
         }
     }
     return e; // Retorna a posição do pivô
-}
+} 

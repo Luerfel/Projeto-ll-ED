@@ -26,13 +26,6 @@ void escolhaOrdenada(int tamanho){
                 insertionSort(vetor,tamanho);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                //printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                //escolha = lerOpcao(2);
-
-                //if (escolha==1){
-                  //  imprimevetor(vetor,tamanho);
-                   // }
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -50,7 +43,7 @@ void escolhaOrdenada(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
 
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
@@ -73,7 +66,6 @@ void escolhaOrdenada(int tamanho){
                 bubbleSort(vetor,tamanho);
                 fim  = clock(); 
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",22011027+c);
                 tempo1[k].chave = tempo_execucao;
@@ -113,7 +105,6 @@ void escolhaOrdenada(int tamanho){
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
  
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -128,7 +119,7 @@ void escolhaOrdenada(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();                                        
@@ -148,7 +139,6 @@ void escolhaOrdenada(int tamanho){
                 mergeSort(vetor,tamanho);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",22011027+c);
                 tempo1[k].chave = tempo_execucao;
@@ -164,7 +154,7 @@ void escolhaOrdenada(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();                              
@@ -179,7 +169,6 @@ void escolhaOrdenada(int tamanho){
                 quickSort(vetor,0,tamanho-1);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -196,7 +185,7 @@ void escolhaOrdenada(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();                                                  
@@ -212,8 +201,6 @@ void escolhaOrdenada(int tamanho){
                 heapSort(vetor,tamanho);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -228,7 +215,7 @@ void escolhaOrdenada(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();

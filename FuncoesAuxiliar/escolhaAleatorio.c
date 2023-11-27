@@ -27,14 +27,6 @@ void escolhaAleatorio(int tamanho){
                 insertionSort(vetor,tamanho);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                /*printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                escolha = lerOpcao(2);
-
-                if (escolha==1){
-                    imprimevetor(vetor,tamanho);
-                    }
-                */
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -49,13 +41,12 @@ void escolhaAleatorio(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
                 if (escolha4 == 1){
-                    voltaMenu();
-                    break;                            
+                    c++;                 
                 }                                                     
                 else if(escolha4 != 1){
                     voltaMenu();
@@ -71,15 +62,7 @@ void escolhaAleatorio(int tamanho){
                 bubbleSort(vetor,tamanho);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                /*
-                printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                escolha = lerOpcao(2);
-
-                if (escolha==1){
-                    imprimevetor(vetor,tamanho);
-                    }
-                */
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
+    
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -94,7 +77,7 @@ void escolhaAleatorio(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -124,7 +107,6 @@ void escolhaAleatorio(int tamanho){
                    // }
                 tempo1[k].chave = tempo_execucao;
                 tempo1[k].seed = 22011027+c;
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 c++;
@@ -137,7 +119,7 @@ void escolhaAleatorio(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -160,14 +142,7 @@ void escolhaAleatorio(int tamanho){
                 mergeSort(vetor,tamanho);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                /*printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                escolha = lerOpcao(2);
 
-                if (escolha==1){
-                    imprimevetor(vetor,tamanho);
-                    }
-                */
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -182,7 +157,7 @@ void escolhaAleatorio(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -205,13 +180,7 @@ void escolhaAleatorio(int tamanho){
                 quickSort(vetor,0,tamanho-1);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                //printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                //escolha = lerOpcao(2);
 
-                //if (escolha==1){
-                  //  imprimevetor(vetor,tamanho);
-                   // }
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -228,7 +197,7 @@ void escolhaAleatorio(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
@@ -249,13 +218,7 @@ void escolhaAleatorio(int tamanho){
                 heapSort(vetor,tamanho);
                 fim  = clock();
                 tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC; // Calcula o tempo decorrido em segundos
-                //printf("Deseja imprimir o vetor?\n1. Sim\n2. Não\n");
-                //escolha = lerOpcao(2);
 
-                //if (escolha==1){
-                  //  imprimevetor(vetor,tamanho);
-                   // }
-                printf("primeiro elemento %d , ultimo elemento %d\n\n",vetor[0].chave,vetor[tamanho-1].chave);
                 printf("Tempo de execução em segundos : %f\n",tempo_execucao);
                 printf("Seed : %d\n",c+22011027);
                 tempo1[k].chave = tempo_execucao;
@@ -270,7 +233,7 @@ void escolhaAleatorio(int tamanho){
                     media = media + tempo1[m].chave;     
                 }
                 media = media/10;
-                printf("\nMedia : %f",media);
+                printf("\nMedia : %f\n",media);
                 escolhaContinuar();
                 escolha4 = lerOpcao(2);
                 limparTela();
