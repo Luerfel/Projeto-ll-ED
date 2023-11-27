@@ -47,6 +47,7 @@ void quickSort(no *v, int LI, int LS) {
 
 
 // Limite Inferior
+/*
 int particao(no *v, int LI, int LS) { 
     no aux;
     int e = LI + 1; // Define o início da busca um elemento à frente do limite inferior
@@ -74,4 +75,34 @@ int particao(no *v, int LI, int LS) {
     v[d] = v[LI];
     v[LI] = aux;
     return d; // Retorna a posição do pivô
+}
+*/
+
+//Limite no Meio
+
+int particao(no *v, int LI, int LS) {
+    no aux;
+    int meio = (LI + LS) / 2; // Calcula o índice do elemento do meio
+    no pivo = v[meio]; // Define o pivô como o elemento do meio do array
+    int e = LI; // Define o início da busca como o limite inferior
+    int d = LS; // Define o fim da busca como o limite superior
+    while (e <= d) {
+        // Encontra um elemento à esquerda do pivô que é maior ou igual ao pivô
+        while (v[e].chave < pivo.chave) {
+            e++;
+        }
+        // Encontra um elemento à direita do pivô que é menor ou igual ao pivô
+        while (v[d].chave > pivo.chave) {
+            d--;
+        }
+        // Troca os elementos encontrados de posição
+        if (e <= d) {
+            aux = v[e];
+            v[e] = v[d];
+            v[d] = aux;
+            e++;
+            d--;
+        }
+    }
+    return e; // Retorna a posição do pivô
 }
