@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "declaracaofuncao.h": "c",
+        "time.h": "c",
+        "math.h": "c"
+    }
+}
